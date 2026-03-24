@@ -1,0 +1,44 @@
+# Gotham Security Corp — Application Settings
+# Safe for version control — no secrets here, use .env for credentials
+
+app:
+  name: GothamSecureAPI
+  version: "2.4.1"
+  environment: ${APP_ENV}
+  debug: false
+
+server:
+  port: ${APP_PORT}
+  timeout: 30
+  cors:
+    origins:
+      - https://gotham-security.com
+      - https://admin.gotham-security.com
+
+database:
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+  name: ${DB_NAME}
+  pool:
+    min: 2
+    max: 10
+    idle_timeout: 30000
+
+cache:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+  ttl: 3600
+
+logging:
+  level: info
+  format: json
+  outputs:
+    - stdout
+    - file:/var/log/gotham-api/app.log
+
+features:
+  rate_limiting: true
+  two_factor_auth: true
+  audit_logging: true
+  wayne_integration: true
+  gcpd_integration: true
