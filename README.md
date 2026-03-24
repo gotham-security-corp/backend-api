@@ -1,4 +1,4 @@
-# Gotham Security Corp — Backend API
+# Gotham Security Corp - Backend API
 
 The core REST API powering Gotham Security Corp's security intelligence platform.
 
